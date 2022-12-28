@@ -1,4 +1,4 @@
-GRANT_HOME=/storage/vagrant_home/.vagrant.d/
+VAGRANT_HOME=/storage/vagrant_home/.vagrant.d/
 
 
 Rebuild vagrant images 
