@@ -1,0 +1,3 @@
+Name,SamAccountName,GroupCategory,GroupScope,DisplayName,Path,Description
+Helpdesk Operators,HelpdeskOperators,Security,Global,Helpdesk Operators,"OU=IT,DC=windomain,DC=local",Users in this group can manage passwords in the domain
+Sales Users,SalesUsers,Security,Global,Sales Users,"OU=Sales,DC=windomain,DC=local",Sales Users

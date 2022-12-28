@@ -1,0 +1,1 @@
+Set-ADUser -Identity $args[0] -ServicePrincipalNames @{Add=$args[1]}

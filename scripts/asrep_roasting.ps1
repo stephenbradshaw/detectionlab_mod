@@ -1,0 +1,1 @@
+Get-ADUser -Identity $args[0] | Set-ADAccountControl -DoesNotRequirePreAuth:$true

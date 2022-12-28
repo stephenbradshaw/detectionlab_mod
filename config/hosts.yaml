@@ -1,0 +1,22 @@
+---
+all:
+  vars:
+    ansible_user: vagrant
+    ansible_password: vagrant
+    ansible_connection: winrm
+    ansible_winrm_transport: ntlm
+    ansible_port: 5985
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_operation_timeout_sec: 400
+    ansible_winrm_read_timeout_sec: 500
+    vm_boot_timeout: 600
+    vm_graceful_halt_timeout: 600
+    vm_post_up_message: 'Machine is up'
+    winrm_retry_limit: 30
+    winrm_retry_delay: 10
+
+  hosts:
+    dc:
+      name: 'dc'
+      ansible_host: '192.168.56.102' 
+

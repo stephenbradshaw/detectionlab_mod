@@ -1,0 +1,42 @@
+---
+- name: Post setup
+  hosts: dc
+  gather_facts: no
+  tasks:
+    - name: Create directory for custom files
+      win_file:
+        path: c:\Tools\custom
+        state: directory
+
+    - name: Copy custom scripts
+      win_copy:
+        src: scripts/
+        dest: c:\Tools\custom\
+
+    - name: Copy custom data files 
+      win_copy:
+        src: data/
+        dest: c:\Tools\custom\
+
+    - name: Run custom ou creation
+      win_shell: c:\Tools\custom\ad_ou.ps1
+
+    - name: Run custom user import
+      win_shell: c:\Tools\custom\ad_bulk_user.ps1
+    
+    - name: Run custom group import
+      win_shell: c:\Tools\custom\ad_bulk_group.ps1
+
+    - name: Run badblood with custom settings
+      win_shell: 'c:\tools\BadBlood\BadBlood-master\Invoke-BadBlood.ps1 500 50 10 $False $False $True'
+
+    - name: Create SharpHound folder
+      win_file:
+        path: C:\Tools\SharpHound
+        state: directory 
+
+    - name: Download latest copy of sharphound
+      win_get_url:
+        url: https://github.com/BloodHoundAD/BloodHound/raw/master/Collectors/SharpHound.exe
+        dest: C:\Tools\SharpHound\SharpHound.exe
+
